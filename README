@@ -1,6 +1,6 @@
 Renamer
 
-Written by Karsten Kšnig
+Written by Karsten Kï¿½nig
 
 Description
 
@@ -20,8 +20,10 @@ Options:
   -l LIST, --list=LIST  use a list of files instead of all files in the
                         directory
 
+Plans:
+Adding a nice GUI with PyQt4
 
-Copyright (C) 2010 Karsten Kšnig <KarstenKoenig@gmx.net>
+Copyright (C) 2010 Karsten Kï¿½nig <KarstenKoenig@gmx.net>
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
