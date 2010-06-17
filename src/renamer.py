@@ -3,7 +3,7 @@
 from optparse import OptionParser
 from functions import *
 
-parser = OptionParser("Namemangler_Python.py [options] directory")
+parser = OptionParser("Renamer.py [options] directory")
 parser.add_option("--pre",dest="prefix",default='',help="set prefix that will be placed to the left of the number")
 parser.add_option("--post",dest="postfix",default='',help="set postfix that will be placed to the right of the number")
 parser.add_option("-v","--verbose",action="store_true",dest="verbose",default=False,help="be chatty")
