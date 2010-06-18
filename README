@@ -19,6 +19,9 @@ Options:
                         set startnumber
   -l LIST, --list=LIST  use a list of files instead of all files in the
                         directory
+  -t, --text-mode       start in text-mode
+  -g, --graphical-mode  start in graphical-mode
+
 
 Plans:
 Adding a nice GUI with PyQt4
