@@ -5,8 +5,10 @@ def rename_files(start, prefix, postfix, verbose, files):
         print "Rename files"
     
     for i in files:
+        #Prepare new name
         name = "%s%d%s" % (prefix, start, postfix)
         
+        #Rename the file!
         if os.path.isfile(i) and not os.path.exists(name):
             if verbose:
                 print "Rename %s to %s" % (i, name)
