@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import sys.exit
+from sys import exit
 from optparse import OptionParser
 from functions import *
 
@@ -24,7 +24,7 @@ if len(args) == 1:
         files = os.listdir(args[0])
     elif not os.path.exists(args[0]):
         print "File or directory don't exists!"
-        sys.exit()
+        exit()
         
     rename_files(int(options.start), options.prefix, options.postfix, options.verbose, files)
 else:
