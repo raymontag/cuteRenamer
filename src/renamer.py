@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from textmode import textmode, os, exit
+from textmode.textmode import textmode, os, exit
 
 #Parse options
 parser = OptionParser("Renamer.py [options] directory")
