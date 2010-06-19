@@ -8,6 +8,9 @@ class MainWindow(QtGui.QWidget):
         self.setGeometry(300,300,250,150)
         self.setWindowTitle("Renamer")
         
+        self.setToolTip("Hello, world!")
+        
+        
 def graphicalmode(args,options):
     app = QtGui.QApplication(args)
     
