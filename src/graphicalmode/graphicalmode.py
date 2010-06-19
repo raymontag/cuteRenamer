@@ -8,8 +8,8 @@ class MainWindow(QtGui.QWidget):
         self.setGeometry(300,300,250,150)
         self.setWindowTitle("Renamer")
         
-def grapicalmode(args,options):
-    app = QtGui.QtApplication(args)
+def graphicalmode(args,options):
+    app = QtGui.QApplication(args)
     
     mainWindow = MainWindow()
     mainWindow.show()
