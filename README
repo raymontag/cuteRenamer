@@ -1,4 +1,4 @@
-Renamer v.0.1
+Renamer v.0.2
 
 Written by Karsten K�nig
 
@@ -22,9 +22,15 @@ Options:
   -t, --text-mode       start in text-mode
   -g, --graphical-mode  start in graphical-mode
 
+In graphical-mode:
+  Select the directory which includes the files for renaming in the treeview. You can enter a path to a list like
+  the -l option in text-mode. The other lines are like the --prefix, --postfix and -s options. 
 
 Plans:
-Adding a nice GUI with PyQt4 (Actually I learn PyQt4, it's both my first project with a GUI and my first bigger one)
+  - Make the GUI more comfortable.
+  - Perfectionize the code.
+  - Fix issues about size of the window (there's a big space above the treeview in Ubuntu Netbook Remix, for example)
+  ...
 
 Copyright (C) 2010 Karsten K�nig <KarstenKoenig@gmx.net>
 

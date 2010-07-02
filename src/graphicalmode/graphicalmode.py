@@ -77,20 +77,30 @@ class MainWindow(QtGui.QWidget):
         
         self.setLayout(vertical)
         
+        #If the button is clicked start the renaming
         self.connect(renameButton, QtCore.SIGNAL('clicked()'), self.rename)
         
     def rename(self):
         selectedIndex = self.dirView.selectedIndexes()
-        if self.listPath.text() == "":
+        
+        if self.listPathEdit.text() == "":
             files = os.listdir(self.dirModel.filePath(selectedIndex[0]))
-        elif (not self.listPath.text() == "") and os.path.isFile(self.listPath.text()):
-            files = [i.rstrip('\n') for i in open(self.listPath.text, "r")]
+        elif (not self.listPathEdit.text() == "") and os.path.isfile(self.listPathEdit.text()):
+            files = [i.rstrip('\n') for i in open(self.listPathEdit.text(), "r")]
         else:
             print "Path to list doesn't exist or is not a file!"
         
+        if not self.startEdit.text() == "":
+            start = int(self.startEdit.text())
+        else:
+            start = 1
+        
+        prefix = self.prefixEdit.text()
+        postfix = self.postfixEdit.text()
+        
         os.chdir(self.dirModel.filePath(selectedIndex[0]))
         
-        rename_files(1, "pre_", "_post", False, files)
+        rename_files(start, prefix, postfix, False, files)
         
 def graphicalmode(args, options):
     app = QtGui.QApplication(args)
