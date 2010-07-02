@@ -1,7 +1,9 @@
 #!/usr/bin/python
 
 from optparse import OptionParser
-from textmode.textmode import textmode, os, exit
+from sys import exit
+from textmode.textmode import textmode, os
+from graphicalmode.graphicalmode import graphicalmode
 
 #Parse options
 parser = OptionParser("Renamer.py [options] directory")
@@ -25,6 +27,7 @@ if options.text:
     textmode(args, options)
 elif options.graphic:
     print "Grapical-mode currently unsupported. Check http://gitorious.org/renamer or http://github.com/RayMontag/Renamer for updates"
+    graphicalmode(args,options)
     exit()
 else:
     print "No UI chosen"
