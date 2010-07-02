@@ -24,14 +24,41 @@ class MainWindow(QtGui.QWidget):
         dirLayout.addStretch(1)
         dirLayout.addWidget(self.dirView)
         
-        #Listpath
+        #Listedit for the optional listfile
         listPathLabel = QtGui.QLabel("Path to list:")
-        self.listPath = QtGui.QLineEdit()
+        self.listPathEdit = QtGui.QLineEdit()
         #Layout
         listPathLayout = QtGui.QVBoxLayout()
         listPathLayout.addStretch(1)
         listPathLayout.addWidget(listPathLabel)
-        listPathLayout.addWidget(self.listPath)
+        listPathLayout.addWidget(self.listPathEdit)
+        
+        #Start renaming with number...
+        startLabel = QtGui.QLabel("Start (default is 1)")
+        self.startEdit = QtGui.QLineEdit()
+        #Layout
+        startEditLayout = QtGui.QVBoxLayout()
+        startEditLayout.addStretch(1)
+        startEditLayout.addWidget(startLabel)
+        startEditLayout.addWidget(self.startEdit)
+        
+        #LineEdit for the prefix
+        prefixLabel = QtGui.QLabel("Prefix")
+        self.prefixEdit = QtGui.QLineEdit()
+        #Layout
+        prefixEditLayout = QtGui.QVBoxLayout()
+        prefixEditLayout.addStretch(1)
+        prefixEditLayout.addWidget(prefixLabel)
+        prefixEditLayout.addWidget(self.prefixEdit)
+        
+        #LineEdit for the postfix
+        postfixLabel = QtGui.QLabel("Postfix")
+        self.postfixEdit = QtGui.QLineEdit()
+        #Layout
+        postfixEditLayout = QtGui.QVBoxLayout()
+        prefixEditLayout.addStretch(1)
+        prefixEditLayout.addWidget(postfixLabel)
+        prefixEditLayout.addWidget(self.postfixEdit)
         
         #The button to start renaming(actually it's a dummy)
         renameButton = QtGui.QPushButton('Rename!')
@@ -43,6 +70,9 @@ class MainWindow(QtGui.QWidget):
         vertical.addStretch(1)
         vertical.addLayout(dirLayout)
         vertical.addLayout(listPathLayout)
+        vertical.addLayout(startEditLayout)
+        vertical.addLayout(prefixEditLayout)
+        vertical.addLayout(postfixEditLayout)
         vertical.addLayout(buttonsLayout)
         
         self.setLayout(vertical)
