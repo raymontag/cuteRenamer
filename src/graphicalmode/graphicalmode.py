@@ -4,7 +4,7 @@ from lib.functions import rename_files, os
 
 class MainWindow(QtGui.QWidget):
     def __init__(self):
-        QtGui.QMainWindow.__init__(self)
+        QtGui.QWidget.__init__(self)
         
         self.setWindowTitle("Renamer")
 
@@ -102,6 +102,9 @@ class MainWindow(QtGui.QWidget):
         
         rename_files(start, prefix, postfix, False, files)
         
+    def closeEvent(self, event):
+        exit()
+    
 def graphicalmode(args, options):
     app = QtGui.QApplication(args)
     
