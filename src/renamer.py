@@ -26,7 +26,6 @@ if options.text:
     
     textmode(args, options)
 elif options.graphic:
-    print "Grapical-mode currently unsupported. Check http://gitorious.org/renamer or http://github.com/RayMontag/Renamer for updates"
     graphicalmode(args,options)
     exit()
 else:
