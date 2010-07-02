@@ -8,7 +8,7 @@ def textmode(args, options):
             print "Read filenames from %s" % options.list
         files = [i.rstrip('\n') for i in open(options.list, "r")]
     elif options.list and (os.path.isdir(options.list) or not os.path.exists(options.list)):
-        print "Path to list don't exists or is a directory"
+        print "Path to list don't exists or is not a file"
         exit()
     else:
         files = os.listdir(args[0])
