@@ -1,0 +1,7 @@
+README
+setup.py
+src/cuterenamer
+src/cuteRenamer/__init__.py
+src/cuteRenamer/functions.py
+src/cuteRenamer/graphicalmode.py
+src/cuteRenamer/textmode.py

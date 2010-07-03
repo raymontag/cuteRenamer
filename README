@@ -6,7 +6,9 @@ Description
 
 This is a simple rename-tool with some nice options
 
-Usage: Renamer.py [options] directory
+Install: In the directory where your tarball is extracted type "python setup.py install" with root-rights.
+
+Usage: cuterenamer [options] directory
 
 Options:
   -h, --help            show this help message and exit
@@ -29,8 +31,6 @@ In graphical-mode:
 Plans:
   - Make the GUI more comfortable.
   - Perfectionize the code.
-  - Fix issues about size of the window (there's a big space above the treeview in Ubuntu Netbook Remix, for example)
-  ...
 
 Copyright (C) 2010 Karsten K�nig <KarstenKoenig@gmx.net>
 

@@ -5,7 +5,7 @@ from sys import exit
 from os.path import isdir
 
 #Parse options
-parser = OptionParser("Renamer.py [options] directory")
+parser = OptionParser("cuterenamer [options] directory")
 parser.add_option("--pre", dest="prefix", default='', help="set prefix that will be placed to the left of the number")
 parser.add_option("--post", dest="postfix", default='', help="set postfix that will be placed to the right of the number")
 parser.add_option("-v", "--verbose", action="store_true", dest="verbose", default=False, help="be chatty")
@@ -23,11 +23,11 @@ if options.text:
     if options.verbose:
         print "Start in text-mode"
     
-    from lib.textmode import textmode
+    from cuteRenamer.textmode import textmode
     
     textmode(args, options)
 elif options.graphic:
-    from lib.graphicalmode import graphicalmode
+    from cuteRenamer.graphicalmode import graphicalmode
     
     graphicalmode(args,options)
 else:
