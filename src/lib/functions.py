@@ -20,5 +20,5 @@ def rename_files(start, prefix, postfix, verbose, files):
             start += 1
         elif os.path.isdir(i):
             print "Will not rename %s to %s is a directory" % (i, name)
-        elif not os.path.exists(i):
+        elif (not os.path.exists(i)) and (not i == ""):
             print "%s doesn't exists" % i
