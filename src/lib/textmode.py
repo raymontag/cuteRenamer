@@ -1,5 +1,5 @@
 from sys import exit
-from lib.functions import rename_files, os
+from functions import rename_files, os
 
 def textmode(args, options):
     #If list-option is chosen read it out

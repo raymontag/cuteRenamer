@@ -2,8 +2,7 @@
 
 from optparse import OptionParser
 from sys import exit
-from textmode.textmode import textmode, os
-from graphicalmode.graphicalmode import graphicalmode
+from os.path import isdir
 
 #Parse options
 parser = OptionParser("Renamer.py [options] directory")
@@ -19,15 +18,18 @@ parser.add_option("-g", "--graphical-mode", action="store_true", default=False, 
 #Chose UI
 if options.text:
     #Check last argument
-    if not (len(args) == 1 and os.path.isdir(args[0])):
+    if not (len(args) == 1 and isdir(args[0])):
         parser.error("Last command-line argument must be a valid directory")
     if options.verbose:
         print "Start in text-mode"
     
+    from lib.textmode import textmode
+    
     textmode(args, options)
 elif options.graphic:
+    from lib.graphicalmode import graphicalmode
+    
     graphicalmode(args,options)
-    exit()
 else:
     print "No UI chosen"
     exit()
