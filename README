@@ -1,10 +1,12 @@
-Renamer v.0.2.1
+cuteRenamer v.0.2.1
 
-Written by Karsten K�nig
+Written by Karsten König
 
 Description
 
-This is a simple rename-tool with some nice options
+This is a simple rename-tool with some nice options written in Python with PyQt4.
+
+I started the development because under Mac OS X doesn’t exist a free alternative to “NameMangler” as far as I know. Actually, I work under Linux and alternatives like pyRenamer are in my opinion to overcharged for some simple rename-processes. So here it is: cuteRenamer
 
 Install: In the directory where your tarball is extracted type "python setup.py install" with root-rights.
 
@@ -32,7 +34,7 @@ Plans:
   - Make the GUI more comfortable.
   - Perfectionize the code.
 
-Copyright (C) 2010 Karsten K�nig <KarstenKoenig@gmx.net>
+Copyright (C) 2010 Karsten König <KarstenKoenig@gmx.net>
 
 This program is free software; you can use it under the terms of the MIT-License.
 You should have received a copy of the MIT-License along with this program; if not check out http://www.opensource.org/licenses/mit-license.php
