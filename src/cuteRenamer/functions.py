@@ -1,12 +1,25 @@
 import os
+import re
 
-def rename_files(start, prefix, postfix, verbose, files):
+def rename_files(start, prefix, postfix, conserve, verbose, files):
     if verbose:
         print "Rename files"
     
     for i in files:
         #Prepare new name
-        name = "%s%d%s" % (prefix, start, postfix)
+        expand = ""
+        
+        if conserve:
+            expand = re.search(r"(\..*)$", i)
+            if not expand == None:
+                expand = expand.group(0)
+            else:
+                expand = ""
+            
+            if verbose:
+                print "Conserve expand %s" % expand
+        
+        name = "%s%d%s%s" % (prefix, start, postfix, expand)
         
         #Rename the file!
         if os.path.isfile(i) and not os.path.exists(name):
@@ -19,6 +32,6 @@ def rename_files(start, prefix, postfix, verbose, files):
             print "Will not rename %s to %s because %s exists!" % (i, name, name)
             start += 1
         elif os.path.isdir(i):
-            print "Will not rename %s to %s is a directory" % (i, name)
+            print "Will not rename %s to %s, 'cause it's a directory" % (i, name)
         elif (not os.path.exists(i)) and (not i == ""):
             print "%s doesn't exists" % i

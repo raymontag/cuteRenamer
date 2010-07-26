@@ -8,6 +8,7 @@ from os.path import isdir
 parser = OptionParser("cuterenamer [options] directory")
 parser.add_option("--pre", dest="prefix", default='', help="set prefix that will be placed to the left of the number")
 parser.add_option("--post", dest="postfix", default='', help="set postfix that will be placed to the right of the number")
+parser.add_option("-c", "--conserve", action="store_true", dest="conserve", default=False, help="Conserve file extension")
 parser.add_option("-v", "--verbose", action="store_true", dest="verbose", default=False, help="be chatty")
 parser.add_option("-s", "--start", dest="start", default=1, help="set startnumber")
 parser.add_option("-l", "--list", dest="list", default=False, help="use a list of files instead of all files in the directory")
@@ -16,7 +17,10 @@ parser.add_option("-g", "--graphical-mode", action="store_true", default=False, 
 (options, args) = parser.parse_args()
 
 #Chose UI
-if options.text:
+if options.text and options.graphic:
+    print "Chose only one UI"
+    exit()
+elif options.text:
     #Check last argument
     if not (len(args) == 1 and isdir(args[0])):
         parser.error("Last command-line argument must be a valid directory")
@@ -27,6 +31,9 @@ if options.text:
     
     textmode(args, options)
 elif options.graphic:
+    if options.verbose:
+        print "Start in graphical-mode"
+    
     from cuteRenamer.graphicalmode import graphicalmode
     
     graphicalmode(args,options)
