@@ -7,8 +7,8 @@ setup(
 	license = "MIT-License",
 	author = "Karsten Koenig",
 	author_email = "KarstenKoenig@gmx.net",
-	url = 'http://www.gitorious.org/renamer',
-	download_url = 'http://gitorious.org/renamer/cuterenamer/archive-tarball/master',
+	url = 'http://www.github.com/raymontag/cuteRenamer',
+	download_url = 'http://www.github.com/raymontag/cuteRenamer/archives/master',
 	scripts = ['src/cuterenamer'],
 	package_dir = {"" : "src"},
 	packages = ["cuteRenamer"]
