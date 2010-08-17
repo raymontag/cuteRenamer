@@ -3,3 +3,5 @@
 .pydevproject
 *.bak
 dist/
+src/cuteRenamer.egg-info
+build/
