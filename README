@@ -1,4 +1,4 @@
-cuteRenamer v.0.2.3
+cuteRenamer v.0.3.0
 
 Written by Karsten König
 
@@ -8,32 +8,14 @@ This is a simple rename-tool with some nice options written in Python with PyQt4
 
 I started the development because under Mac OS X doesn’t exist a free alternative to “NameMangler” as far as I know. Actually, I work under Linux and alternatives like pyRenamer are in my opinion to overcharged for some simple rename-processes. So here it is: cuteRenamer
 
-Install: The requirements are Python and PySide. 
+Install: The requirements are Python and PyQt4. 
 
 In the directory where your tarball is extracted type "python setup.py install" with root-rights.
 
-Usage: cuterenamer [options] directory
-
-Options:
-  -h, --help            show this help message and exit
-  --pre=PREFIX          set prefix that will be placed to the left of the
-                        number
-  --post=POSTFIX        set postfix that will be placed to the right of the
-                        number
-  -v, --verbose         be chatty
-  -s START, --start=START
-                        set startnumber
-  -l LIST, --list=LIST  use a list of files instead of all files in the
-                        directory
-  -t, --text-mode       start in text-mode
-  -g, --graphical-mode  start in graphical-mode
-
-In graphical-mode:
-  Select the directory which includes the files for renaming in the treeview. You can enter a path to a list like
-  the -l option in text-mode. The other lines are like the --prefix, --postfix and -s options. 
+Usage: cuterenamer
 
 Plans:
-  - Make the GUI more comfortable.
+  - Make the GUI more comfortable. (This thing with the list is not very smart. I must fix this)
   - Perfectionize the code.
 
 Copyright (C) 2010 Karsten König <KarstenKoenig@gmx.net>
