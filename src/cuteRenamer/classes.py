@@ -3,9 +3,7 @@ from sys import exit
 from functions import rename_files, os
 
 class MainWindow(QtGui.QWidget):
-    def __init__(self, verbose):
-        self.verbose = verbose
-        
+    def __init__(self):
         QtGui.QWidget.__init__(self)
         
         self.setWindowTitle("cuteRenamer")
@@ -80,14 +78,12 @@ class MainWindow(QtGui.QWidget):
         selectedIndex = self.dirView.selectedIndexes()
         
         if self.listPathEdit.text() == "":
-            if self.verbose:
-                print "Read the whole directory"
+            print "Read the whole directory"
             
             files = os.listdir(self.dirModel.filePath(selectedIndex[0]))
         
         elif (not self.listPathEdit.text() == "") and os.path.isfile(self.listPathEdit.text()):
-            if self.verbose:
-                print "Read filenames from %s" % self.listPathEdit.text()
+            print "Read filenames from %s" % self.listPathEdit.text()
             
             files = [i.rstrip('\n') for i in open(self.listPathEdit.text(), "r")]
         
@@ -108,30 +104,13 @@ class MainWindow(QtGui.QWidget):
         else:
             conserve = False
         
-        if self.verbose:
-            print "Start: %d\n Prefix: %s\n Postfix: %s\n Conserve: %s" % (start, prefix, postfix, conserve)
-            print "Change directory"
+        print "Start: %d\nPrefix: %s\nPostfix: %s\nConserve: %s" % (start, prefix, postfix, conserve)
+        print "Change directory"
         
         os.chdir(self.dirModel.filePath(selectedIndex[0]))
         
-        rename_files(start, prefix, postfix, conserve, self.verbose, files)
+        rename_files(start, prefix, postfix, conserve, files)
         
     def closeEvent(self, event):
+        print "Quit application"
         exit()
-    
-def graphicalmode(args, options):
-    if options.verbose:
-        print "Initialize the application"
-    
-    app = QtGui.QApplication(args)
-    
-    if options.verbose:
-        print "Create the window"
-    
-    mainWindow = MainWindow(options.verbose)
-    mainWindow.show()
-    
-    if options.verbose:
-        print "Start the application"
-    
-    exit(app.exec_())

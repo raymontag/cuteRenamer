@@ -1,9 +1,9 @@
 import os
 import re
 
-def rename_files(start, prefix, postfix, conserve, verbose, files):
-    if verbose:
-        print "Rename files"
+#A function to rename the files
+def rename_files(start, prefix, postfix, conserve, files):
+    print "Rename files"
     
     for i in files:
         #Prepare new name
@@ -16,15 +16,13 @@ def rename_files(start, prefix, postfix, conserve, verbose, files):
             else:
                 expand = ""
             
-            if verbose:
-                print "Conserve expand %s" % expand
+            print "Conserve expand %s" % expand
         
         name = "%s%d%s%s" % (prefix, start, postfix, expand)
         
         #Rename the file!
         if os.path.isfile(i) and not os.path.exists(name):
-            if verbose:
-                print "Rename %s to %s" % (i, name)
+            print "Rename %s to %s" % (i, name)
             
             os.rename(i, name)
             start += 1
