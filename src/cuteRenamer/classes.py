@@ -2,7 +2,17 @@ from PyQt4 import QtGui, QtCore
 from sys import exit
 from functions import rename_files, os
 
+'''
+This class represents the program.
+
+It will create the main window and holds a method to prepare
+all important things to rename the files.
+'''
 class MainWindow(QtGui.QWidget):
+    
+    '''
+    The initial method creates the window and connects the rename method.
+    '''
     def __init__(self):
         QtGui.QWidget.__init__(self)
         
@@ -74,6 +84,9 @@ class MainWindow(QtGui.QWidget):
         #If the button is clicked start the renaming
         self.connect(renameButton, QtCore.SIGNAL('clicked()'), self.rename)
     
+    '''
+    This method prepares all options and starts the rename progress.
+    '''
     def rename(self):
         selectedIndex = self.dirView.selectedIndexes()
         
@@ -110,7 +123,10 @@ class MainWindow(QtGui.QWidget):
         os.chdir(self.dirModel.filePath(selectedIndex[0]))
         
         rename_files(start, prefix, postfix, conserve, files)
-        
+    
+    '''
+    A simple close event.
+    '''
     def closeEvent(self, event):
         print "Quit application"
         exit()

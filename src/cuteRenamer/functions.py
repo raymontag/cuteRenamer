@@ -1,7 +1,11 @@
 import os
 import re
 
-#A function to rename the files
+'''
+This function will rename all files included in "files".
+
+The other parameters are options to configure the final file name.
+'''
 def rename_files(start, prefix, postfix, conserve, files):
     print "Rename files"
     
