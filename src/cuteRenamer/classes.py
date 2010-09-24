@@ -1,4 +1,7 @@
-from PyQt4 import QtGui, QtCore
+from PyQt4.QtGui import (QWidget, QFileSystemModel, QTreeView, QSizePolicy,
+                         QLabel, QLineEdit, QCheckBox, QHBoxLayout,
+                         QVBoxLayout, QPushButton)
+from PyQt4.QtCore import (QDir, SIGNAL)
 from sys import exit
 from functions import rename_files, os
 
@@ -8,59 +11,59 @@ This class represents the program.
 It will create the main window and holds a method to prepare
 all important things to rename the files.
 '''
-class MainWindow(QtGui.QWidget):
+class MainWindow(QWidget):
     
     '''
     The initial method creates the window and connects the rename method.
     '''
     def __init__(self):
-        QtGui.QWidget.__init__(self)
+        QWidget.__init__(self)
         
         self.setWindowTitle("cuteRenamer")
 
         #Set Data-Model for showing the directories
-        self.dirModel = QtGui.QFileSystemModel()
+        self.dirModel = QFileSystemModel()
         self.dirModel.setRootPath('/')
-        self.dirModel.setFilter(QtCore.QDir.AllDirs | QtCore.QDir.NoDotAndDotDot)#Show only directories without '.' and '..'
+        self.dirModel.setFilter(QDir.AllDirs | QDir.NoDotAndDotDot)#Show only directories without '.' and '..'
         #Set the view for the directories
-        self.dirView = QtGui.QTreeView()
+        self.dirView = QTreeView()
         self.dirView.setModel(self.dirModel)
         #Show only the directories in the view
         self.dirView.setColumnHidden(1, True)
         self.dirView.setColumnHidden(2, True)
         self.dirView.setColumnHidden(3, True)
         
-        self.dirView.setSizePolicy(QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Expanding)
+        self.dirView.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         
         #Listedit for the optional listfile
-        listPathLabel = QtGui.QLabel("Path to list:")
-        self.listPathEdit = QtGui.QLineEdit()
+        listPathLabel = QLabel("Path to list:")
+        self.listPathEdit = QLineEdit()
         
         #Start renaming with number...
-        startLabel = QtGui.QLabel("Start (default is 1)")
-        self.startEdit = QtGui.QLineEdit()
+        startLabel = QLabel("Start (default is 1)")
+        self.startEdit = QLineEdit()
         
         #LineEdit for the prefix
-        prefixLabel = QtGui.QLabel("Prefix")
-        self.prefixEdit = QtGui.QLineEdit()
+        prefixLabel = QLabel("Prefix")
+        self.prefixEdit = QLineEdit()
         
         #LineEdit for the postfix
-        postfixLabel = QtGui.QLabel("Postfix")
-        self.postfixEdit = QtGui.QLineEdit()
+        postfixLabel = QLabel("Postfix")
+        self.postfixEdit = QLineEdit()
         
         #Checkbox to conserve file extensions
-        self.checkboxConserve = QtGui.QCheckBox("Conserve file extensions")
-        checkboxLayout = QtGui.QHBoxLayout()
+        self.checkboxConserve = QCheckBox("Conserve file extensions")
+        checkboxLayout = QHBoxLayout()
         checkboxLayout.addStretch(1)
         checkboxLayout.addWidget(self.checkboxConserve)
         
         #The button to start renaming
-        renameButton = QtGui.QPushButton('Rename!')
-        buttonsLayout = QtGui.QHBoxLayout()
+        renameButton = QPushButton('Rename!')
+        buttonsLayout = QHBoxLayout()
         buttonsLayout.addStretch(1)
         buttonsLayout.addWidget(renameButton)
         
-        vertical = QtGui.QVBoxLayout()
+        vertical = QVBoxLayout()
         vertical.addWidget(self.dirView)
         vertical.addSpacing(10)
         vertical.addWidget(listPathLabel)
@@ -82,7 +85,7 @@ class MainWindow(QtGui.QWidget):
         self.setLayout(vertical)
         
         #If the button is clicked start the renaming
-        self.connect(renameButton, QtCore.SIGNAL('clicked()'), self.rename)
+        self.connect(renameButton, SIGNAL('clicked()'), self.rename)
     
     '''
     This method prepares all options and starts the rename progress.

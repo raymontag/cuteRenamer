@@ -14,7 +14,7 @@ def rename_files(start, prefix, postfix, conserve, files):
         expand = ""
         
         if conserve:
-            expand = re.search(r"(\..*)$", i)
+            expand = os.path.splitext(i)[1]
             if not expand == None:
                 expand = expand.group(0)
             else:

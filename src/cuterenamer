@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 '''
 Copyright (C) 2010 Karsten König <KarstenKoenig@gmx.net>
 
@@ -12,12 +14,12 @@ it is: cuteRenamer
 '''
 This is just a script to start the main program
 '''
-#!/usr/bin/python
 
-from cuteRenamer.classes import QtGui, MainWindow
+from cuteRenamer.classes import MainWindow
+from PyQt4.QtGui import QApplication
 from sys import exit
 
-app = QtGui.QApplication(["cuteRenamer"])
+app = QApplication(["cuteRenamer"])
     
 print "Create the window"
 mainWindow = MainWindow()
